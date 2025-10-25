@@ -3,7 +3,7 @@ let step = 0;
 const steps = [
   { text: "🌞 Freunde, Die Urlaubsplanung steht an 🌍", buttons: ["Los geht’s!"] },
   { text: "Wer ist dabei? 😎", buttons: ["Alle! Natürlich!", "Ich bin dabei"] },
-  { text: "Wann könnten wir gehen?", buttons: ["Pfingstferien KW22+23", "Nach Pfingsten KW24+25", "Vor den Sommerferien KW29+30", "Sommerferien", "Nach Sommerferien"] },
+  { text: "Wann könnten wir gehen?", buttons: ["Pfingstferien KW22+23", "Nach Pfingsten KW24+25", "Vor den Sommerferien KW29+30", "Sommerferien KW31-KW37", "Nach Sommerferien KW38+KW39"] },
   { text: "Bitte mal überlegen, Abstimmung kommt", buttons: ["Weiter"] },
   { text: "Wo soll’s hingehen? 🌍", type: "continent" },
   { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Nochmal 🔁"] }
