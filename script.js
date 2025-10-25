@@ -6,7 +6,7 @@ const steps = [
   { text: "Wann könnten wir gehen?", buttons: ["Pfingstferien KW22+23", "Nach Pfingsten KW24+25", "Vor den Sommerferien KW29+30", "Sommerferien", "Nach Sommerferien"] },
   { text: "Bitte mal überlegen, Abstimmung kommt", buttons: ["Weiter"] },
   { text: "Wo soll’s hingehen? 🌍", type: "continent" },
-  { text: "Perfekt! Dann sehen wir uns am Flughafen 😂", buttons: ["Nochmal 🔁"] }
+  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Nochmal 🔁"] }
 ];
 
 function showStep() {
@@ -38,7 +38,7 @@ function showStep() {
 function nextStep(choice) {
   if (step === 0 && choice === "Los geht’s!") step = 1;
   else if (step === 1 && choice === "Alle! Natürlich!") step = 2;
-  else if (step === 1 && choice === "Ich bin raus 😅") step = 5;
+  else if (step === 1 && choice === "Ich bin dabei") step = 2;
   else if (step === 2) step = 3; // nach Zeitwahl weiter
   else if (step === 3) step = 4;
   else if (step === 5 && choice === "Nochmal 🔁") step = 0;
