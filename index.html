@@ -88,13 +88,13 @@
     position: absolute;
   }
 
-  /* kompaktere geographische Platzierung */
-  .north-america { top: 5%; left: 10%; }
-  .south-america { top: 50%; left: 15%; }
-  .europe { top: 15%; left: 45%; }
-  .africa { top: 45%; left: 45%; }
-  .asia { top: 20%; left: 70%; }
-  .australia { top: 65%; left: 75%; }
+  /* Geografisch feinjustierte mobile Positionierung */
+  .north-america { top: 8%; left: 4%; }
+  .south-america { top: 55%; left: 10%; }
+  .europe { top: 15%; left: 48%; }
+  .africa { top: 45%; left: 50%; }
+  .asia { top: 20%; left: 73%; }
+  .australia { top: 65%; left: 78%; }
 
   .continent button {
     background: #4a90e2;
@@ -103,7 +103,7 @@
   }
 
   @media (max-width: 400px) {
-    .world-map { height: 260px; }
+    .world-map { height: 260px; max-width: 300px; }
     h1 { font-size: 1.2rem; margin-top: 2.5rem; }
     button { font-size: 0.85rem; }
   }
