@@ -157,9 +157,9 @@ button:hover {
 
   .north-america { top: 22%; left: 18%; }
   .south-america { top: 65%; left: 28%; }
-  .europe         { top: 20%; left: 53%; }
+  .europe         { top: 27%; left: 53%; }
   .africa         { top: 55%; left: 53%; }
-  .asia           { top: 53%; left: 78%; }
+  .asia           { top: 40%; left: 78%; }
   .australia      { top: 72%; left: 82%; }
 
   .world-map .continent button {
