@@ -1,12 +1,12 @@
 let step = 0;
 
 const steps = [
-  { text: "🌞 Freunde, Die Urlaubsplanung steht an 🌍", buttons: ["Los geht’s!"] },
+  { text: "🌞 Freunde, die Urlaubsplanung steht an 🌍", buttons: ["Los geht’s!"] },
   { text: "Wer ist dabei? 😎", buttons: ["Alle! Natürlich!", "Ich bin dabei"] },
   { text: "Wann könnten wir gehen?", buttons: ["Pfingstferien KW22+23", "Nach Pfingsten KW24+25", "Vor den Sommerferien KW29+30", "Sommerferien KW31-KW37", "Nach Sommerferien KW38+KW39"] },
-  { text: "Bitte mal überlegen, Abstimmung kommt", buttons: ["Weiter"] },
+  { text: "Abstimmung kommt", buttons: ["Weiter"] },
   { text: "Wo soll’s hingehen? 🌍", type: "continent" },
-  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Nochmal 🔁"] }
+  { text: "Schreibt mal eure Ideen in die Gruppe 📣", buttons: ["Bis bald", "Neustart 🔁"] }
 ];
 
 function showStep() {
@@ -37,11 +37,10 @@ function showStep() {
 
 function nextStep(choice) {
   if (step === 0 && choice === "Los geht’s!") step = 1;
-  else if (step === 1 && choice === "Alle! Natürlich!") step = 2;
-  else if (step === 1 && choice === "Ich bin dabei") step = 2;
-  else if (step === 2) step = 3; // nach Zeitwahl weiter
+  else if (step === 1 && (choice === "Alle! Natürlich!" || choice === "Ich bin dabei")) step = 2;
+  else if (step === 2) step = 3;
   else if (step === 3) step = 4;
-  else if (step === 5 && choice === "Nochmal 🔁") step = 0;
+  else if (step === 5 && (choice === "Bis bald" || choice === "Neustart 🔁")) step = 0;
   showStep();
 }
 
@@ -57,12 +56,10 @@ function chooseContinent(continent) {
     case "Asien":
       msg.innerHTML = `<h1>Laura sagt nein 😅</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
-
     case "Australien":
     case "Nordamerika":
       msg.innerHTML = `<h1>Zu teuer 💸</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
-
     case "Afrika":
       msg.innerHTML = `
         <h1>Aha, Safari / Lodge oder All-In oder unser Standard Strandurlaub? 🏝️</h1>
@@ -72,7 +69,6 @@ function chooseContinent(continent) {
           <button onclick="chooseCountry('Marokko')">Marokko</button>
         </div>`;
       break;
-
     case "Europa":
       msg.innerHTML = `
         <h1>Dann bleiben wir in Europa 🇪🇺</h1>
@@ -81,61 +77,36 @@ function chooseContinent(continent) {
           <button onclick="chooseCountry('Zypern')">Zypern</button>
           <button onclick="chooseCountry('Montenegro')">Montenegro</button>
           <button onclick="chooseCountry('Griechenland')">Griechenland</button>
-          <button onclick="chooseCountry('Kroatien')">Kroatien</button>
         </div>`;
       break;
-
     case "Südamerika":
       msg.innerHTML = `<h1>Nein 😂</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
   }
 }
 
-// 🏖️ Neue Funktion: Länder-Auswahl
 function chooseCountry(country) {
   const msg = document.getElementById("message");
   let summary = "";
 
   switch (country) {
-    case "Tansania":
-      summary = "Safari, Kilimandscharo, Sansibar – Abenteuer pur 🦁🏝️";
-      break;
-    case "Ägypten":
-      summary = "All-In, Sonne, Meer, Schnorcheln & Pharaonen vibes 🏺☀️";
-      break;
-    case "Marokko":
-      summary = "Wüste, Medina, Kamele & Meer 🐪🌅";
-      break;
-    case "Albanien":
-      summary = "Günstig, Sonne, kristallklares Wasser & gute Laune 🇦🇱";
-      break;
-    case "Zypern":
-      summary = "Sonne, Meer, Mezze & griechisches Lebensgefühl 🇨🇾";
-      break;
-    case "Montenegro":
-      summary = "Kleine Buchten, viel Sonne, entspannt & schön 🇲🇪";
-      break;
-    case "Griechenland":
-      summary = "Weiß-blaue Häuser, Ouzo & Strandtavernen 🇬🇷";
-      break;
-    case "Kroatien":
-      summary = "Klares Wasser, Felsenstrände, Roadtrip Vibes 🇭🇷";
-      break;
+    case "Tansania": summary = "Safari, Kilimandscharo, Sansibar 🦁🏝️"; break;
+    case "Ägypten": summary = "Sonne, Meer, Schnorcheln & Pyramiden 🏺☀️"; break;
+    case "Marokko": summary = "Wüste, Medina, Kamele & Meer 🐪🌅"; break;
+    case "Albanien": summary = "Sonne, Wasser 🇦🇱"; break;
+    case "Zypern": summary = "Sonne, Meer, Mezze & griechisches Lebensgefühl 🇨🇾"; break;
+    case "Montenegro": summary = "Kleine Buchten, viel Sonne 🇲🇪"; break;
+    case "Griechenland": summary = "Weiß-blaue Häuser, Ouzo & Strandtavernen 🇬🇷"; break;
   }
 
   msg.innerHTML = `
     <h1>${country} klingt gut! 😍</h1>
     <p>${summary}</p>
     <div class="buttons">
-      <button onclick="finalStep()">Weiter</button>
+      <button onclick="step=5; showStep()">Weiter</button>
       <button onclick="showStep()">Anderes Land wählen 🔁</button>
     </div>
   `;
-}
-
-function finalStep() {
-  step = 5;
-  showStep();
 }
 
 document.addEventListener("DOMContentLoaded", showStep);
