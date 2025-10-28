@@ -6,7 +6,8 @@ const steps = [
   { text: "Wann könnten wir gehen?", buttons: ["Pfingstferien KW22+23", "Nach Pfingsten KW24+25", "Vor den Sommerferien KW29+30", "Sommerferien KW31-KW37", "Nach Sommerferien KW38+KW39"] },
   { text: "Abstimmung kommt", buttons: ["Weiter"] },
   { text: "Wo soll’s hingehen? 🌍", type: "continent" },
-  { text: "Schreibt mal eure Ideen in die Gruppe 📣", buttons: ["Bis bald", "Neustart 🔁"] }
+  { text: "Schreibt mal eure Ideen in die Gruppe 📣", buttons: ["Bis bald", "Neustart 🔁"] },
+  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Nochmal 🔁"] }
 ];
 
 function showStep() {
