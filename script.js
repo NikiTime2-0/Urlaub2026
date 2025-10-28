@@ -53,36 +53,89 @@ function skip() {
 function chooseContinent(continent) {
   const msg = document.getElementById("message");
 
-  switch(continent) {
+  switch (continent) {
     case "Asien":
       msg.innerHTML = `<h1>Laura sagt nein 😅</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
+
     case "Australien":
     case "Nordamerika":
       msg.innerHTML = `<h1>Zu teuer 💸</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
+
     case "Afrika":
       msg.innerHTML = `
         <h1>Aha, Safari / Lodge oder All-In oder unser Standard Strandurlaub? 🏝️</h1>
         <div class="buttons">
-          <button onclick="nextStep('Safari')">Safari / Lodge</button>
-          <button onclick="nextStep('All-In')">All-In</button>
-          <button onclick="nextStep('Strand')">Strand</button>
+          <button onclick="chooseCountry('Tansania')">Tansania / Sansibar</button>
+          <button onclick="chooseCountry('Ägypten')">Ägypten</button>
+          <button onclick="chooseCountry('Marokko')">Marokko</button>
         </div>`;
       break;
+
     case "Europa":
       msg.innerHTML = `
         <h1>Dann bleiben wir in Europa 🇪🇺</h1>
         <div class="buttons">
-          <button onclick="nextStep('Albanien')">Albanien</button>
-          <button onclick="nextStep('Zypern')">Zypern</button>
-          <button onclick="nextStep('Montenegro')">Montenegro</button>
+          <button onclick="chooseCountry('Albanien')">Albanien</button>
+          <button onclick="chooseCountry('Zypern')">Zypern</button>
+          <button onclick="chooseCountry('Montenegro')">Montenegro</button>
+          <button onclick="chooseCountry('Griechenland')">Griechenland</button>
+          <button onclick="chooseCountry('Kroatien')">Kroatien</button>
         </div>`;
       break;
+
     case "Südamerika":
       msg.innerHTML = `<h1>Nein 😂</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
   }
+}
+
+// 🏖️ Neue Funktion: Länder-Auswahl
+function chooseCountry(country) {
+  const msg = document.getElementById("message");
+  let summary = "";
+
+  switch (country) {
+    case "Tansania":
+      summary = "Safari, Kilimandscharo, Sansibar – Abenteuer pur 🦁🏝️";
+      break;
+    case "Ägypten":
+      summary = "All-In, Sonne, Meer, Schnorcheln & Pharaonen vibes 🏺☀️";
+      break;
+    case "Marokko":
+      summary = "Wüste, Medina, Kamele & Meer 🐪🌅";
+      break;
+    case "Albanien":
+      summary = "Günstig, Sonne, kristallklares Wasser & gute Laune 🇦🇱";
+      break;
+    case "Zypern":
+      summary = "Sonne, Meer, Mezze & griechisches Lebensgefühl 🇨🇾";
+      break;
+    case "Montenegro":
+      summary = "Kleine Buchten, viel Sonne, entspannt & schön 🇲🇪";
+      break;
+    case "Griechenland":
+      summary = "Weiß-blaue Häuser, Ouzo & Strandtavernen 🇬🇷";
+      break;
+    case "Kroatien":
+      summary = "Klares Wasser, Felsenstrände, Roadtrip Vibes 🇭🇷";
+      break;
+  }
+
+  msg.innerHTML = `
+    <h1>${country} klingt gut! 😍</h1>
+    <p>${summary}</p>
+    <div class="buttons">
+      <button onclick="finalStep()">Weiter</button>
+      <button onclick="showStep()">Anderes Land wählen 🔁</button>
+    </div>
+  `;
+}
+
+function finalStep() {
+  step = 5;
+  showStep();
 }
 
 document.addEventListener("DOMContentLoaded", showStep);
