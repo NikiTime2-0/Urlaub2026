@@ -46,7 +46,7 @@ function nextStep(choice) {
 }
 
 function skip() {
-  step = 5;
+  step = 6;
   showStep();
 }
 
