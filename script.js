@@ -7,7 +7,7 @@ const steps = [
   { text: "Abstimmung kommt", buttons: ["Weiter"] },
   { text: "Wo soll’s hingehen? 🌍", type: "continent" },
   { text: "Schreibt mal eure Ideen in die Gruppe 📣", buttons: ["Bis bald", "Neustart 🔁"] },
-  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Nochmal 🔁"] }
+  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Neustart 🔁"] }
 ];
 
 function showStep() {
@@ -42,6 +42,7 @@ function nextStep(choice) {
   else if (step === 2) step = 3;
   else if (step === 3) step = 4;
   else if (step === 5 && (choice === "Bis bald" || choice === "Neustart 🔁")) step = 0;
+  else if (step === 6 && choice === "Neustart 🔁") step = 0;
   showStep();
 }
 
