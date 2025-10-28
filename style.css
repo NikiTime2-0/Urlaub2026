@@ -160,7 +160,7 @@ button:hover {
   .europe         { top: 27%; left: 53%; }
   .africa         { top: 55%; left: 53%; }
   .asia           { top: 40%; left: 78%; }
-  .australia      { top: 72%; left: 82%; }
+  .australia      { top: 80%; left: 82%; }
 
   .world-map .continent button {
     min-width: 95px;
