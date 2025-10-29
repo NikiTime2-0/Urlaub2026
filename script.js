@@ -66,7 +66,7 @@ function chooseContinent(continent) {
       break;
     case "Afrika":
       msg.innerHTML = `
-        <h1>Aha, Safari / Lodge oder All-In oder unser Standard Strandurlaub? 🏝️</h1>
+        <h1>Safari, Lodge oder unser Standard Strandurlaub? 🏝️</h1>
         <div class="buttons">
           <button onclick="chooseCountry('Tansania')">Tansania / Sansibar</button>
           <button onclick="chooseCountry('Ägypten')">Ägypten</button>
