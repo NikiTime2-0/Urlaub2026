@@ -7,7 +7,7 @@ const steps = [
   { text: "Abstimmung kommt", buttons: ["Weiter"] },
   { text: "Wo soll’s hingehen? 🌍", type: "continent" },
   { text: "Schreibt mal eure Ideen in die Gruppe 📣", buttons: ["Bis bald", "Neustart 🔁"] },
-  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Neustart 🔁"] }
+  { text: "Perfekt! Wir sehen uns am Flughafen 😂", buttons: ["Abflug ✈️"] }
 ];
 
 function showStep() {
@@ -42,7 +42,7 @@ function nextStep(choice) {
   else if (step === 2) step = 3;
   else if (step === 3) step = 4;
   else if (step === 5 && (choice === "Bis bald" || choice === "Neustart 🔁")) step = 0;
-  else if (step === 6 && choice === "Neustart 🔁") step = 0;
+  else if (step === 6 && choice === "Abflug ✈️") step = 0;
   showStep();
 }
 
@@ -59,6 +59,8 @@ function chooseContinent(continent) {
       msg.innerHTML = `<h1>Laura sagt nein 😅</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
     case "Australien":
+      msg.innerHTML = `<h1>Zu wenig Zeit ⏱️</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
+      break;
     case "Nordamerika":
       msg.innerHTML = `<h1>Zu teuer 💸</h1><div class="buttons"><button onclick="showStep()">Zurück</button></div>`;
       break;
@@ -106,7 +108,7 @@ function chooseCountry(country) {
     <p>${summary}</p>
     <div class="buttons">
       <button onclick="step=5; showStep()">Weiter</button>
-      <button onclick="showStep()">Anderes Land wählen 🔁</button>
+      <button onclick="showStep()">Anderes Land wählen 🗺️</button>
     </div>
   `;
 }
